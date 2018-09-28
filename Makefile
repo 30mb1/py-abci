@@ -8,7 +8,7 @@ dev-install:
 
 gogo:
 	protoc protobuf/github.com/gogo/protobuf/gogoproto/gogo.proto --python_out=./
-	protoc protobuf/github.com/tendermint/tmlibs/common/types.proto --python_out=./
+	protoc protobuf/github.com/tendermint/tendermint/libs/common/types.proto --python_out=./
 	protoc protobuf/types.proto --python_out=abci/
 
 clean:

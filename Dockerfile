@@ -20,9 +20,10 @@ RUN go get github.com/gogo/protobuf/protoc-gen-gofast
 
 ENV PYTHONUNBUFFERED 0
 
-ENV TENDERMINT_PORT 46657
+ENV TENDERMINT_PORT 26657
 
-RUN mkdir -p /usr/src/app
-COPY . /usr/src/app/
-WORKDIR /usr/src/app
-RUN pip install --no-cache-dir -e .
+RUN mkdir -p /app
+
+VOLUME /app
+
+WORKDIR /app

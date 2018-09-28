@@ -1,12 +1,16 @@
 syntax = "proto3";
 package common;
 
-// For more information on gogo.proto, see:
-// https://github.com/gogo/protobuf/blob/master/extensions.md
-// NOTE: Try really hard not to use custom types,
-// it's often complicated, broken, nor not worth it.
 import "protobuf/github.com/gogo/protobuf/gogoproto/gogo.proto";
 
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.unmarshaler_all) = true;
+option (gogoproto.sizer_all) = true;
+option (gogoproto.goproto_registration) = true;
+// Generate tests
+option (gogoproto.populate_all) = true;
+option (gogoproto.equal_all) = true;
+option (gogoproto.testgen_all) = true;
 
 //----------------------------------------
 // Abstract types
