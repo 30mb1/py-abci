@@ -11,28 +11,17 @@ connection.  If one crashes you will not have full connectivity to Tendermint
 
 import signal
 from io import BytesIO
+import asyncio
+from contextlib import suppress
 
-import gevent
-from gevent.event import Event
-from gevent.server import StreamServer
 
 from .encoding import read_messages, write_message
 from .utils import get_logger
 from .application import BaseApplication
 
 from .types_pb2 import (
-    Request, Response, ResponseException,
-    RequestEcho, ResponseEcho,
-    RequestFlush, ResponseFlush,
-    RequestInitChain, ResponseInitChain,
-    RequestInfo, ResponseInfo,
-    RequestSetOption, ResponseSetOption,
-    ResponseDeliverTx,
-    ResponseCheckTx,
-    RequestQuery, ResponseQuery,
-    RequestBeginBlock, ResponseBeginBlock,
-    RequestEndBlock, ResponseEndBlock,
-    ResponseCommit,
+    Request, Response, ResponseEcho,
+    ResponseFlush, ResponseException
 )
 
 log = get_logger()
@@ -108,6 +97,14 @@ class ProtocolHandler:
         return write_message(response)
 
 
+def handler(signum, frame):
+    raise Exception
+
+signal.signal(signal.SIGQUIT, handler)
+signal.signal(signal.SIGTERM, handler)
+signal.signal(signal.SIGINT, handler)
+
+
 class ABCIServer:
     def __init__(self, port=26658, app=None):
         if not app or not isinstance(app, BaseApplication):
@@ -115,47 +112,50 @@ class ABCIServer:
             raise TypeError("Application missing or not an instance of Base Application")
         self.port = port
         self.protocol = ProtocolHandler(app)
-        self.server = StreamServer(('0.0.0.0', port), handle=self.__handle_connection)
 
-    def start(self):
-        self.server.start()
-
-    def stop(self):
-        log.info("Shutting down server")
-        self.server.stop()
+        self.loop = asyncio.get_event_loop()
+        coro = asyncio.start_server(self.__handle_connection, '0.0.0.0', 26658, loop=self.loop)
+        self.server = self.loop.run_until_complete(coro)
 
     def run(self):
         """Option to calling manually calling start()/stop(). This will start
         the server and watch for signals to stop the server"""
-        self.server.start()
         log.info(" ABCIServer started on port: {}".format(self.port))
+        try:
+            self.loop.run_forever()
+        except Exception:
+            pass
 
-        # wait for interrupt
-        evt = Event()
-        gevent.signal(signal.SIGQUIT, evt.set)
-        gevent.signal(signal.SIGTERM, evt.set)
-        gevent.signal(signal.SIGINT, evt.set)
-        evt.wait()
+        pending = asyncio.Task.all_tasks()
+        list(map(lambda task: task.cancel(), pending))
+        with suppress(asyncio.CancelledError):
+            self.loop.run_until_complete(asyncio.gather(*pending))
 
+        # Close the server
+        self.server.close()
+        self.loop.run_until_complete(self.server.wait_closed())
         log.info("Shutting down server")
-        self.server.stop()
+        self.loop.close()
+
 
     # TM will spawn off 3 connections: mempool, consensus, query
     # If an error happens in 1 it still leaves the others open which
     # means you don't have all the connections available to TM
-    def __handle_connection(self, socket, address):
-        log.info(' ... connection from Tendermint: {}:{} ...'.format(address[0], address[1]))
+    async def __handle_connection(self, reader, writer):
+        addr = writer.get_extra_info('peername')
+        log.info(f' ... Connection from Tendermint: {addr[0]}:{addr[1]} ...')
         data = BytesIO()
         last_pos = 0
 
         while True:
+
             # Create a new buffer every time there is the possibility.
             # This avoids having a never ending buffer.
             if last_pos == data.tell():
                 data = BytesIO()
                 last_pos = 0
 
-            inbound = socket.recv(1024 * 8)  # 8KB
+            inbound = await reader.read(1024 * 8)
             data.write(inbound)
 
             if not len(inbound):
@@ -169,7 +169,8 @@ class ABCIServer:
             for message in messages:
                 req_type = message.WhichOneof('value')
                 response = self.protocol.process(req_type, message)
-                socket.send(response)
+                writer.write(response)
+                await writer.drain()
                 last_pos = data.tell()
 
-        socket.close()
+        writer.close()
