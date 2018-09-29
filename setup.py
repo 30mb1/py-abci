@@ -11,12 +11,13 @@ with open(path.join(DIR, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='abci',
-    version='0.5.1',
+    name='tm-abci',
+    version='0.6.1.1',
     description='Python based ABCI Server for Tendermint',
     long_description=long_description,
-    url='https://github.com/davebryson/py-abci',
-    author='Dave Bryson',
+    long_description_content_type="text/x-rst",
+    url='https://github.com/SoftblocksCo/tm-abci',
+    author='SoftblocksCo',
     license='Apache 2.0',
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -28,7 +29,7 @@ setup(
     packages=find_packages(exclude=['tests']),
     install_requires=[
         "protobuf>=3.5.2.post1",
-        "gevent>=1.3a2",
+        "asyncio>=3.4.3",
         "colorlog>=3.1.2",
         "pytest>=3.5.0",
         "pytest-pythonpath>=0.7.2",

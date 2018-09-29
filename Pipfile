@@ -8,7 +8,7 @@ pytest-pythonpath = "*"
 
 [packages]
 protobuf = "*"
-gevent = "*"
+asyncio = "*"
 colorlog = "*"
 
 [requires]
