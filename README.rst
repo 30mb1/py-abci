@@ -9,7 +9,7 @@ Installation
 ------------
 Requires Python >= 3.6.5
 
-``pip install abci``  OR ``python setup.py install``
+``pip install tm-abci``  OR ``python setup.py install``
 
 Generating Protobuf
 -------------------
@@ -25,9 +25,9 @@ just want to create apps, goto Getting Started
 Or using Docker container:
 
 1. Update all .proto files (protobuf dir)
-2. Build image:``sudo docker build -t ABCIdev .``
-3. Run container: ``sudo docker run -it ABCIdev sh``
-4. Inside container run: ``make gogo`` and ``mv abci/protobuf/types_pb2.py abci/types_pb2.py``
+2. Build image:``sudo docker build -t abcidev .``
+3. Run container: ``sudo docker run -it abcidev sh``
+4. Inside container run: ``make gogo``
 
 
 Getting Started
