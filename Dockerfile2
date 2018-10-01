@@ -1,0 +1,9 @@
+FROM python:3.6
+
+ENV TENDERMINT_PORT 26657
+
+RUN mkdir -p /app
+COPY . /app/
+WORKDIR /app
+
+RUN pip install --no-cache-dir -e .

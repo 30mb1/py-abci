@@ -4,36 +4,30 @@ services:
   abci:
     build:
       context: .
+      dockerfile: Dockerfile2
     image: tm-abci_abci
-    volumes:
-      - /home/user_name/projects/tm-abci:/app
     environment:
       TENDERMINT_HOST: tendermint
       TENDERMINT_PORT: 26657
     expose:
       - "26658"
-
-    command: bash -c "pip install -e . && python examples/counter.py"
+    command: bash -c "python examples/test_app.py"
 
   tendermint:
     depends_on:
       - abci
     image: tendermint/tendermint:0.24.0
-    volumes:
-      - /home/user_name/tendermint:/tendermint
     entrypoint: ''
-    command: tendermint node --proxy_app=abci:26658
+    command: sh -c "tendermint init && tendermint node --proxy_app=abci:26658"
     expose:
       - "26657"
 
   tm-bench:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile2
     image: tm-abci_abci
-    volumes:
-      - /home/user_name/projects/tm-abci:/app
     depends_on:
       - tendermint
       - abci
-    command: bash -c "./tm-bench -T 60 -r 2000 -c 5 -test.count 5 tendermint:26657"
+    command: bash -c "sleep 5 && ./tm-bench -T 60 -r 2000 -c 5 -test.count 5 tendermint:26657"
