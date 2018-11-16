@@ -3,7 +3,7 @@ Build blockchain applications in Python for Tendermint
 
 Version
 -------
-Supports ABCI v0.14.0 and latest Tendermint
+Supports ABCI v0.15.0 and latest Tendermint (0.26.0)
 
 Installation
 ------------
@@ -26,7 +26,7 @@ Or using Docker container:
 
 1. Update all .proto files (protobuf dir)
 2. Build image:``sudo docker build -t abcidev .``
-3. Run container: ``sudo docker run -it abcidev sh``
+3. Run container: ``sudo docker run -it  abcidev sh``
 4. Inside container run: ``make gogo``
 
 Testing with tm-bench

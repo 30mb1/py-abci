@@ -12,7 +12,7 @@ with open(path.join(DIR, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='tm-abci',
-    version='0.6.1.1',
+    version='0.6.3',
     description='Python based ABCI Server for Tendermint',
     long_description=long_description,
     long_description_content_type="text/x-rst",
@@ -28,7 +28,7 @@ setup(
     keywords='blockchain tendermint abci',
     packages=find_packages(exclude=['tests']),
     install_requires=[
-        "protobuf>=3.5.2.post1",
+        "protobuf>=3.6.1",
         "asyncio>=3.4.3",
         "colorlog>=3.1.2",
         "pytest>=3.5.0",

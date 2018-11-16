@@ -16,15 +16,16 @@ _sym_db = _symbol_database.Default()
 from protobuf.github.com.gogo.protobuf.gogoproto import gogo_pb2 as protobuf_dot_github_dot_com_dot_gogo_dot_protobuf_dot_gogoproto_dot_gogo__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from protobuf.github.com.tendermint.tendermint.libs.common import types_pb2 as protobuf_dot_github_dot_com_dot_tendermint_dot_tendermint_dot_libs_dot_common_dot_types__pb2
+from protobuf.github.com.tendermint.tendermint.crypto.merkle import merkle_pb2 as protobuf_dot_github_dot_com_dot_tendermint_dot_tendermint_dot_crypto_dot_merkle_dot_merkle__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='protobuf/types.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x14protobuf/types.proto\x12\x05types\x1a\x36protobuf/github.com/gogo/protobuf/gogoproto/gogo.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x41protobuf/github.com/tendermint/tendermint/libs/common/types.proto\"\xe4\x03\n\x07Request\x12\"\n\x04\x65\x63ho\x18\x02 \x01(\x0b\x32\x12.types.RequestEchoH\x00\x12$\n\x05\x66lush\x18\x03 \x01(\x0b\x32\x13.types.RequestFlushH\x00\x12\"\n\x04info\x18\x04 \x01(\x0b\x32\x12.types.RequestInfoH\x00\x12-\n\nset_option\x18\x05 \x01(\x0b\x32\x17.types.RequestSetOptionH\x00\x12-\n\ninit_chain\x18\x06 \x01(\x0b\x32\x17.types.RequestInitChainH\x00\x12$\n\x05query\x18\x07 \x01(\x0b\x32\x13.types.RequestQueryH\x00\x12/\n\x0b\x62\x65gin_block\x18\x08 \x01(\x0b\x32\x18.types.RequestBeginBlockH\x00\x12)\n\x08\x63heck_tx\x18\t \x01(\x0b\x32\x15.types.RequestCheckTxH\x00\x12-\n\ndeliver_tx\x18\x13 \x01(\x0b\x32\x17.types.RequestDeliverTxH\x00\x12+\n\tend_block\x18\x0b \x01(\x0b\x32\x16.types.RequestEndBlockH\x00\x12&\n\x06\x63ommit\x18\x0c \x01(\x0b\x32\x14.types.RequestCommitH\x00\x42\x07\n\x05value\"\x1e\n\x0bRequestEcho\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x0e\n\x0cRequestFlush\"\x1e\n\x0bRequestInfo\x12\x0f\n\x07version\x18\x01 \x01(\t\".\n\x10RequestSetOption\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\xd5\x01\n\x10RequestInitChain\x12\x32\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\xc8\xde\x1f\x00\x90\xdf\x1f\x01\x12\x10\n\x08\x63hain_id\x18\x02 \x01(\t\x12\x30\n\x10\x63onsensus_params\x18\x03 \x01(\x0b\x32\x16.types.ConsensusParams\x12\x30\n\nvalidators\x18\x04 \x03(\x0b\x32\x16.types.ValidatorUpdateB\x04\xc8\xde\x1f\x00\x12\x17\n\x0f\x61pp_state_bytes\x18\x05 \x01(\x0c\"I\n\x0cRequestQuery\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\x0e\n\x06height\x18\x03 \x01(\x03\x12\r\n\x05prove\x18\x04 \x01(\x08\"\xb2\x01\n\x11RequestBeginBlock\x12\x0c\n\x04hash\x18\x01 \x01(\x0c\x12#\n\x06header\x18\x02 \x01(\x0b\x32\r.types.HeaderB\x04\xc8\xde\x1f\x00\x12\x35\n\x10last_commit_info\x18\x03 \x01(\x0b\x32\x15.types.LastCommitInfoB\x04\xc8\xde\x1f\x00\x12\x33\n\x14\x62yzantine_validators\x18\x04 \x03(\x0b\x32\x0f.types.EvidenceB\x04\xc8\xde\x1f\x00\"\x1c\n\x0eRequestCheckTx\x12\n\n\x02tx\x18\x01 \x01(\x0c\"\x1e\n\x10RequestDeliverTx\x12\n\n\x02tx\x18\x01 \x01(\x0c\"!\n\x0fRequestEndBlock\x12\x0e\n\x06height\x18\x01 \x01(\x03\"\x0f\n\rRequestCommit\"\x9f\x04\n\x08Response\x12-\n\texception\x18\x01 \x01(\x0b\x32\x18.types.ResponseExceptionH\x00\x12#\n\x04\x65\x63ho\x18\x02 \x01(\x0b\x32\x13.types.ResponseEchoH\x00\x12%\n\x05\x66lush\x18\x03 \x01(\x0b\x32\x14.types.ResponseFlushH\x00\x12#\n\x04info\x18\x04 \x01(\x0b\x32\x13.types.ResponseInfoH\x00\x12.\n\nset_option\x18\x05 \x01(\x0b\x32\x18.types.ResponseSetOptionH\x00\x12.\n\ninit_chain\x18\x06 \x01(\x0b\x32\x18.types.ResponseInitChainH\x00\x12%\n\x05query\x18\x07 \x01(\x0b\x32\x14.types.ResponseQueryH\x00\x12\x30\n\x0b\x62\x65gin_block\x18\x08 \x01(\x0b\x32\x19.types.ResponseBeginBlockH\x00\x12*\n\x08\x63heck_tx\x18\t \x01(\x0b\x32\x16.types.ResponseCheckTxH\x00\x12.\n\ndeliver_tx\x18\n \x01(\x0b\x32\x18.types.ResponseDeliverTxH\x00\x12,\n\tend_block\x18\x0b \x01(\x0b\x32\x17.types.ResponseEndBlockH\x00\x12\'\n\x06\x63ommit\x18\x0c \x01(\x0b\x32\x15.types.ResponseCommitH\x00\x42\x07\n\x05value\"\"\n\x11ResponseException\x12\r\n\x05\x65rror\x18\x01 \x01(\t\"\x1f\n\x0cResponseEcho\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x0f\n\rResponseFlush\"e\n\x0cResponseInfo\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x19\n\x11last_block_height\x18\x03 \x01(\x03\x12\x1b\n\x13last_block_app_hash\x18\x04 \x01(\x0c\"<\n\x11ResponseSetOption\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0b\n\x03log\x18\x03 \x01(\t\x12\x0c\n\x04info\x18\x04 \x01(\t\"w\n\x11ResponseInitChain\x12\x30\n\x10\x63onsensus_params\x18\x01 \x01(\x0b\x32\x16.types.ConsensusParams\x12\x30\n\nvalidators\x18\x02 \x03(\x0b\x32\x16.types.ValidatorUpdateB\x04\xc8\xde\x1f\x00\"\x82\x01\n\rResponseQuery\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0b\n\x03log\x18\x03 \x01(\t\x12\x0c\n\x04info\x18\x04 \x01(\t\x12\r\n\x05index\x18\x05 \x01(\x03\x12\x0b\n\x03key\x18\x06 \x01(\x0c\x12\r\n\x05value\x18\x07 \x01(\x0c\x12\r\n\x05proof\x18\x08 \x01(\x0c\x12\x0e\n\x06height\x18\t \x01(\x03\"J\n\x12ResponseBeginBlock\x12\x34\n\x04tags\x18\x01 \x03(\x0b\x32\x0e.common.KVPairB\x16\xc8\xde\x1f\x00\xea\xde\x1f\x0etags,omitempty\"\xa4\x01\n\x0fResponseCheckTx\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12\x0b\n\x03log\x18\x03 \x01(\t\x12\x0c\n\x04info\x18\x04 \x01(\t\x12\x12\n\ngas_wanted\x18\x05 \x01(\x03\x12\x10\n\x08gas_used\x18\x06 \x01(\x03\x12\x34\n\x04tags\x18\x07 \x03(\x0b\x32\x0e.common.KVPairB\x16\xc8\xde\x1f\x00\xea\xde\x1f\x0etags,omitempty\"\xa6\x01\n\x11ResponseDeliverTx\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12\x0b\n\x03log\x18\x03 \x01(\t\x12\x0c\n\x04info\x18\x04 \x01(\t\x12\x12\n\ngas_wanted\x18\x05 \x01(\x03\x12\x10\n\x08gas_used\x18\x06 \x01(\x03\x12\x34\n\x04tags\x18\x07 \x03(\x0b\x32\x0e.common.KVPairB\x16\xc8\xde\x1f\x00\xea\xde\x1f\x0etags,omitempty\"\xba\x01\n\x10ResponseEndBlock\x12\x37\n\x11validator_updates\x18\x01 \x03(\x0b\x32\x16.types.ValidatorUpdateB\x04\xc8\xde\x1f\x00\x12\x37\n\x17\x63onsensus_param_updates\x18\x02 \x01(\x0b\x32\x16.types.ConsensusParams\x12\x34\n\x04tags\x18\x03 \x03(\x0b\x32\x0e.common.KVPairB\x16\xc8\xde\x1f\x00\xea\xde\x1f\x0etags,omitempty\"\x1e\n\x0eResponseCommit\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"g\n\x0f\x43onsensusParams\x12$\n\nblock_size\x18\x01 \x01(\x0b\x32\x10.types.BlockSize\x12.\n\x0f\x65vidence_params\x18\x02 \x01(\x0b\x32\x15.types.EvidenceParams\"/\n\tBlockSize\x12\x11\n\tmax_bytes\x18\x01 \x01(\x03\x12\x0f\n\x07max_gas\x18\x02 \x01(\x03\"!\n\x0e\x45videnceParams\x12\x0f\n\x07max_age\x18\x01 \x01(\x03\"E\n\x0eLastCommitInfo\x12\r\n\x05round\x18\x01 \x01(\x05\x12$\n\x05votes\x18\x02 \x03(\x0b\x32\x0f.types.VoteInfoB\x04\xc8\xde\x1f\x00\"\x96\x03\n\x06Header\x12\x1d\n\x08\x63hain_id\x18\x01 \x01(\tB\x0b\xe2\xde\x1f\x07\x43hainID\x12\x0e\n\x06height\x18\x02 \x01(\x03\x12\x32\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\xc8\xde\x1f\x00\x90\xdf\x1f\x01\x12\x0f\n\x07num_txs\x18\x04 \x01(\x03\x12\x11\n\ttotal_txs\x18\x05 \x01(\x03\x12+\n\rlast_block_id\x18\x06 \x01(\x0b\x32\x0e.types.BlockIDB\x04\xc8\xde\x1f\x00\x12\x18\n\x10last_commit_hash\x18\x07 \x01(\x0c\x12\x11\n\tdata_hash\x18\x08 \x01(\x0c\x12\x17\n\x0fvalidators_hash\x18\t \x01(\x0c\x12\x1c\n\x14next_validators_hash\x18\n \x01(\x0c\x12\x16\n\x0e\x63onsensus_hash\x18\x0b \x01(\x0c\x12\x10\n\x08\x61pp_hash\x18\x0c \x01(\x0c\x12\x19\n\x11last_results_hash\x18\r \x01(\x0c\x12\x15\n\revidence_hash\x18\x0e \x01(\x0c\x12\x18\n\x10proposer_address\x18\x0f \x01(\x0c\"I\n\x07\x42lockID\x12\x0c\n\x04hash\x18\x01 \x01(\x0c\x12\x30\n\x0cparts_header\x18\x02 \x01(\x0b\x32\x14.types.PartSetHeaderB\x04\xc8\xde\x1f\x00\",\n\rPartSetHeader\x12\r\n\x05total\x18\x01 \x01(\x05\x12\x0c\n\x04hash\x18\x02 \x01(\x0c\"+\n\tValidator\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0c\x12\r\n\x05power\x18\x03 \x01(\x03\"F\n\x0fValidatorUpdate\x12$\n\x07pub_key\x18\x01 \x01(\x0b\x32\r.types.PubKeyB\x04\xc8\xde\x1f\x00\x12\r\n\x05power\x18\x02 \x01(\x03\"P\n\x08VoteInfo\x12)\n\tvalidator\x18\x01 \x01(\x0b\x32\x10.types.ValidatorB\x04\xc8\xde\x1f\x00\x12\x19\n\x11signed_last_block\x18\x02 \x01(\x08\"$\n\x06PubKey\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"\xa3\x01\n\x08\x45vidence\x12\x0c\n\x04type\x18\x01 \x01(\t\x12)\n\tvalidator\x18\x02 \x01(\x0b\x32\x10.types.ValidatorB\x04\xc8\xde\x1f\x00\x12\x0e\n\x06height\x18\x03 \x01(\x03\x12\x32\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\xc8\xde\x1f\x00\x90\xdf\x1f\x01\x12\x1a\n\x12total_voting_power\x18\x05 \x01(\x03\x32\x8c\x05\n\x0f\x41\x42\x43IApplication\x12/\n\x04\x45\x63ho\x12\x12.types.RequestEcho\x1a\x13.types.ResponseEcho\x12\x32\n\x05\x46lush\x12\x13.types.RequestFlush\x1a\x14.types.ResponseFlush\x12/\n\x04Info\x12\x12.types.RequestInfo\x1a\x13.types.ResponseInfo\x12>\n\tSetOption\x12\x17.types.RequestSetOption\x1a\x18.types.ResponseSetOption\x12>\n\tDeliverTx\x12\x17.types.RequestDeliverTx\x1a\x18.types.ResponseDeliverTx\x12\x38\n\x07\x43heckTx\x12\x15.types.RequestCheckTx\x1a\x16.types.ResponseCheckTx\x12\x32\n\x05Query\x12\x13.types.RequestQuery\x1a\x14.types.ResponseQuery\x12\x35\n\x06\x43ommit\x12\x14.types.RequestCommit\x1a\x15.types.ResponseCommit\x12>\n\tInitChain\x12\x17.types.RequestInitChain\x1a\x18.types.ResponseInitChain\x12\x41\n\nBeginBlock\x12\x18.types.RequestBeginBlock\x1a\x19.types.ResponseBeginBlock\x12;\n\x08\x45ndBlock\x12\x16.types.RequestEndBlock\x1a\x17.types.ResponseEndBlockB\x1c\xc8\xe2\x1e\x01\xd0\xe2\x1e\x01\xe0\xe2\x1e\x01\xc0\xe3\x1e\x01\xf8\xe1\x1e\x01\xa8\xe2\x1e\x01\xb8\xe2\x1e\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x14protobuf/types.proto\x12\x05types\x1a\x36protobuf/github.com/gogo/protobuf/gogoproto/gogo.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x41protobuf/github.com/tendermint/tendermint/libs/common/types.proto\x1a\x44protobuf/github.com/tendermint/tendermint/crypto/merkle/merkle.proto\"\xe4\x03\n\x07Request\x12\"\n\x04\x65\x63ho\x18\x02 \x01(\x0b\x32\x12.types.RequestEchoH\x00\x12$\n\x05\x66lush\x18\x03 \x01(\x0b\x32\x13.types.RequestFlushH\x00\x12\"\n\x04info\x18\x04 \x01(\x0b\x32\x12.types.RequestInfoH\x00\x12-\n\nset_option\x18\x05 \x01(\x0b\x32\x17.types.RequestSetOptionH\x00\x12-\n\ninit_chain\x18\x06 \x01(\x0b\x32\x17.types.RequestInitChainH\x00\x12$\n\x05query\x18\x07 \x01(\x0b\x32\x13.types.RequestQueryH\x00\x12/\n\x0b\x62\x65gin_block\x18\x08 \x01(\x0b\x32\x18.types.RequestBeginBlockH\x00\x12)\n\x08\x63heck_tx\x18\t \x01(\x0b\x32\x15.types.RequestCheckTxH\x00\x12-\n\ndeliver_tx\x18\x13 \x01(\x0b\x32\x17.types.RequestDeliverTxH\x00\x12+\n\tend_block\x18\x0b \x01(\x0b\x32\x16.types.RequestEndBlockH\x00\x12&\n\x06\x63ommit\x18\x0c \x01(\x0b\x32\x14.types.RequestCommitH\x00\x42\x07\n\x05value\"\x1e\n\x0bRequestEcho\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x0e\n\x0cRequestFlush\"J\n\x0bRequestInfo\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x15\n\rblock_version\x18\x02 \x01(\x04\x12\x13\n\x0bp2p_version\x18\x03 \x01(\x04\".\n\x10RequestSetOption\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\xd5\x01\n\x10RequestInitChain\x12\x32\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\xc8\xde\x1f\x00\x90\xdf\x1f\x01\x12\x10\n\x08\x63hain_id\x18\x02 \x01(\t\x12\x30\n\x10\x63onsensus_params\x18\x03 \x01(\x0b\x32\x16.types.ConsensusParams\x12\x30\n\nvalidators\x18\x04 \x03(\x0b\x32\x16.types.ValidatorUpdateB\x04\xc8\xde\x1f\x00\x12\x17\n\x0f\x61pp_state_bytes\x18\x05 \x01(\x0c\"I\n\x0cRequestQuery\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\x0e\n\x06height\x18\x03 \x01(\x03\x12\r\n\x05prove\x18\x04 \x01(\x08\"\xb2\x01\n\x11RequestBeginBlock\x12\x0c\n\x04hash\x18\x01 \x01(\x0c\x12#\n\x06header\x18\x02 \x01(\x0b\x32\r.types.HeaderB\x04\xc8\xde\x1f\x00\x12\x35\n\x10last_commit_info\x18\x03 \x01(\x0b\x32\x15.types.LastCommitInfoB\x04\xc8\xde\x1f\x00\x12\x33\n\x14\x62yzantine_validators\x18\x04 \x03(\x0b\x32\x0f.types.EvidenceB\x04\xc8\xde\x1f\x00\"\x1c\n\x0eRequestCheckTx\x12\n\n\x02tx\x18\x01 \x01(\x0c\"\x1e\n\x10RequestDeliverTx\x12\n\n\x02tx\x18\x01 \x01(\x0c\"!\n\x0fRequestEndBlock\x12\x0e\n\x06height\x18\x01 \x01(\x03\"\x0f\n\rRequestCommit\"\x9f\x04\n\x08Response\x12-\n\texception\x18\x01 \x01(\x0b\x32\x18.types.ResponseExceptionH\x00\x12#\n\x04\x65\x63ho\x18\x02 \x01(\x0b\x32\x13.types.ResponseEchoH\x00\x12%\n\x05\x66lush\x18\x03 \x01(\x0b\x32\x14.types.ResponseFlushH\x00\x12#\n\x04info\x18\x04 \x01(\x0b\x32\x13.types.ResponseInfoH\x00\x12.\n\nset_option\x18\x05 \x01(\x0b\x32\x18.types.ResponseSetOptionH\x00\x12.\n\ninit_chain\x18\x06 \x01(\x0b\x32\x18.types.ResponseInitChainH\x00\x12%\n\x05query\x18\x07 \x01(\x0b\x32\x14.types.ResponseQueryH\x00\x12\x30\n\x0b\x62\x65gin_block\x18\x08 \x01(\x0b\x32\x19.types.ResponseBeginBlockH\x00\x12*\n\x08\x63heck_tx\x18\t \x01(\x0b\x32\x16.types.ResponseCheckTxH\x00\x12.\n\ndeliver_tx\x18\n \x01(\x0b\x32\x18.types.ResponseDeliverTxH\x00\x12,\n\tend_block\x18\x0b \x01(\x0b\x32\x17.types.ResponseEndBlockH\x00\x12\'\n\x06\x63ommit\x18\x0c \x01(\x0b\x32\x15.types.ResponseCommitH\x00\x42\x07\n\x05value\"\"\n\x11ResponseException\x12\r\n\x05\x65rror\x18\x01 \x01(\t\"\x1f\n\x0cResponseEcho\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x0f\n\rResponseFlush\"z\n\x0cResponseInfo\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x13\n\x0b\x61pp_version\x18\x03 \x01(\x04\x12\x19\n\x11last_block_height\x18\x04 \x01(\x03\x12\x1b\n\x13last_block_app_hash\x18\x05 \x01(\x0c\"<\n\x11ResponseSetOption\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0b\n\x03log\x18\x03 \x01(\t\x12\x0c\n\x04info\x18\x04 \x01(\t\"w\n\x11ResponseInitChain\x12\x30\n\x10\x63onsensus_params\x18\x01 \x01(\x0b\x32\x16.types.ConsensusParams\x12\x30\n\nvalidators\x18\x02 \x03(\x0b\x32\x16.types.ValidatorUpdateB\x04\xc8\xde\x1f\x00\"\xa4\x01\n\rResponseQuery\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0b\n\x03log\x18\x03 \x01(\t\x12\x0c\n\x04info\x18\x04 \x01(\t\x12\r\n\x05index\x18\x05 \x01(\x03\x12\x0b\n\x03key\x18\x06 \x01(\x0c\x12\r\n\x05value\x18\x07 \x01(\x0c\x12\x1c\n\x05proof\x18\x08 \x01(\x0b\x32\r.merkle.Proof\x12\x0e\n\x06height\x18\t \x01(\x03\x12\x11\n\tcodespace\x18\n \x01(\t\"J\n\x12ResponseBeginBlock\x12\x34\n\x04tags\x18\x01 \x03(\x0b\x32\x0e.common.KVPairB\x16\xc8\xde\x1f\x00\xea\xde\x1f\x0etags,omitempty\"\xb7\x01\n\x0fResponseCheckTx\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12\x0b\n\x03log\x18\x03 \x01(\t\x12\x0c\n\x04info\x18\x04 \x01(\t\x12\x12\n\ngas_wanted\x18\x05 \x01(\x03\x12\x10\n\x08gas_used\x18\x06 \x01(\x03\x12\x34\n\x04tags\x18\x07 \x03(\x0b\x32\x0e.common.KVPairB\x16\xc8\xde\x1f\x00\xea\xde\x1f\x0etags,omitempty\x12\x11\n\tcodespace\x18\x08 \x01(\t\"\xb9\x01\n\x11ResponseDeliverTx\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12\x0b\n\x03log\x18\x03 \x01(\t\x12\x0c\n\x04info\x18\x04 \x01(\t\x12\x12\n\ngas_wanted\x18\x05 \x01(\x03\x12\x10\n\x08gas_used\x18\x06 \x01(\x03\x12\x34\n\x04tags\x18\x07 \x03(\x0b\x32\x0e.common.KVPairB\x16\xc8\xde\x1f\x00\xea\xde\x1f\x0etags,omitempty\x12\x11\n\tcodespace\x18\x08 \x01(\t\"\xba\x01\n\x10ResponseEndBlock\x12\x37\n\x11validator_updates\x18\x01 \x03(\x0b\x32\x16.types.ValidatorUpdateB\x04\xc8\xde\x1f\x00\x12\x37\n\x17\x63onsensus_param_updates\x18\x02 \x01(\x0b\x32\x16.types.ConsensusParams\x12\x34\n\x04tags\x18\x03 \x03(\x0b\x32\x0e.common.KVPairB\x16\xc8\xde\x1f\x00\xea\xde\x1f\x0etags,omitempty\"\x1e\n\x0eResponseCommit\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"\x91\x01\n\x0f\x43onsensusParams\x12*\n\nblock_size\x18\x01 \x01(\x0b\x32\x16.types.BlockSizeParams\x12\'\n\x08\x65vidence\x18\x02 \x01(\x0b\x32\x15.types.EvidenceParams\x12)\n\tvalidator\x18\x03 \x01(\x0b\x32\x16.types.ValidatorParams\"5\n\x0f\x42lockSizeParams\x12\x11\n\tmax_bytes\x18\x01 \x01(\x03\x12\x0f\n\x07max_gas\x18\x02 \x01(\x03\"!\n\x0e\x45videnceParams\x12\x0f\n\x07max_age\x18\x01 \x01(\x03\"(\n\x0fValidatorParams\x12\x15\n\rpub_key_types\x18\x01 \x03(\t\"E\n\x0eLastCommitInfo\x12\r\n\x05round\x18\x01 \x01(\x05\x12$\n\x05votes\x18\x02 \x03(\x0b\x32\x0f.types.VoteInfoB\x04\xc8\xde\x1f\x00\"\xbd\x03\n\x06Header\x12%\n\x07version\x18\x01 \x01(\x0b\x32\x0e.types.VersionB\x04\xc8\xde\x1f\x00\x12\x1d\n\x08\x63hain_id\x18\x02 \x01(\tB\x0b\xe2\xde\x1f\x07\x43hainID\x12\x0e\n\x06height\x18\x03 \x01(\x03\x12\x32\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\xc8\xde\x1f\x00\x90\xdf\x1f\x01\x12\x0f\n\x07num_txs\x18\x05 \x01(\x03\x12\x11\n\ttotal_txs\x18\x06 \x01(\x03\x12+\n\rlast_block_id\x18\x07 \x01(\x0b\x32\x0e.types.BlockIDB\x04\xc8\xde\x1f\x00\x12\x18\n\x10last_commit_hash\x18\x08 \x01(\x0c\x12\x11\n\tdata_hash\x18\t \x01(\x0c\x12\x17\n\x0fvalidators_hash\x18\n \x01(\x0c\x12\x1c\n\x14next_validators_hash\x18\x0b \x01(\x0c\x12\x16\n\x0e\x63onsensus_hash\x18\x0c \x01(\x0c\x12\x10\n\x08\x61pp_hash\x18\r \x01(\x0c\x12\x19\n\x11last_results_hash\x18\x0e \x01(\x0c\x12\x15\n\revidence_hash\x18\x0f \x01(\x0c\x12\x18\n\x10proposer_address\x18\x10 \x01(\x0c\"%\n\x07Version\x12\r\n\x05\x42lock\x18\x01 \x01(\x04\x12\x0b\n\x03\x41pp\x18\x02 \x01(\x04\"I\n\x07\x42lockID\x12\x0c\n\x04hash\x18\x01 \x01(\x0c\x12\x30\n\x0cparts_header\x18\x02 \x01(\x0b\x32\x14.types.PartSetHeaderB\x04\xc8\xde\x1f\x00\",\n\rPartSetHeader\x12\r\n\x05total\x18\x01 \x01(\x05\x12\x0c\n\x04hash\x18\x02 \x01(\x0c\"+\n\tValidator\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0c\x12\r\n\x05power\x18\x03 \x01(\x03\"F\n\x0fValidatorUpdate\x12$\n\x07pub_key\x18\x01 \x01(\x0b\x32\r.types.PubKeyB\x04\xc8\xde\x1f\x00\x12\r\n\x05power\x18\x02 \x01(\x03\"P\n\x08VoteInfo\x12)\n\tvalidator\x18\x01 \x01(\x0b\x32\x10.types.ValidatorB\x04\xc8\xde\x1f\x00\x12\x19\n\x11signed_last_block\x18\x02 \x01(\x08\"$\n\x06PubKey\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"\xa3\x01\n\x08\x45vidence\x12\x0c\n\x04type\x18\x01 \x01(\t\x12)\n\tvalidator\x18\x02 \x01(\x0b\x32\x10.types.ValidatorB\x04\xc8\xde\x1f\x00\x12\x0e\n\x06height\x18\x03 \x01(\x03\x12\x32\n\x04time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\xc8\xde\x1f\x00\x90\xdf\x1f\x01\x12\x1a\n\x12total_voting_power\x18\x05 \x01(\x03\x32\x8c\x05\n\x0f\x41\x42\x43IApplication\x12/\n\x04\x45\x63ho\x12\x12.types.RequestEcho\x1a\x13.types.ResponseEcho\x12\x32\n\x05\x46lush\x12\x13.types.RequestFlush\x1a\x14.types.ResponseFlush\x12/\n\x04Info\x12\x12.types.RequestInfo\x1a\x13.types.ResponseInfo\x12>\n\tSetOption\x12\x17.types.RequestSetOption\x1a\x18.types.ResponseSetOption\x12>\n\tDeliverTx\x12\x17.types.RequestDeliverTx\x1a\x18.types.ResponseDeliverTx\x12\x38\n\x07\x43heckTx\x12\x15.types.RequestCheckTx\x1a\x16.types.ResponseCheckTx\x12\x32\n\x05Query\x12\x13.types.RequestQuery\x1a\x14.types.ResponseQuery\x12\x35\n\x06\x43ommit\x12\x14.types.RequestCommit\x1a\x15.types.ResponseCommit\x12>\n\tInitChain\x12\x17.types.RequestInitChain\x1a\x18.types.ResponseInitChain\x12\x41\n\nBeginBlock\x12\x18.types.RequestBeginBlock\x1a\x19.types.ResponseBeginBlock\x12;\n\x08\x45ndBlock\x12\x16.types.RequestEndBlock\x1a\x17.types.ResponseEndBlockB\x1c\xc8\xe2\x1e\x01\xd0\xe2\x1e\x01\xe0\xe2\x1e\x01\xc0\xe3\x1e\x01\xf8\xe1\x1e\x01\xa8\xe2\x1e\x01\xb8\xe2\x1e\x01\x62\x06proto3')
   ,
-  dependencies=[protobuf_dot_github_dot_com_dot_gogo_dot_protobuf_dot_gogoproto_dot_gogo__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,protobuf_dot_github_dot_com_dot_tendermint_dot_tendermint_dot_libs_dot_common_dot_types__pb2.DESCRIPTOR,])
+  dependencies=[protobuf_dot_github_dot_com_dot_gogo_dot_protobuf_dot_gogoproto_dot_gogo__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,protobuf_dot_github_dot_com_dot_tendermint_dot_tendermint_dot_libs_dot_common_dot_types__pb2.DESCRIPTOR,protobuf_dot_github_dot_com_dot_tendermint_dot_tendermint_dot_crypto_dot_merkle_dot_merkle__pb2.DESCRIPTOR,])
 
 
 
@@ -128,8 +129,8 @@ _REQUEST = _descriptor.Descriptor(
       name='value', full_name='types.Request.value',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=188,
-  serialized_end=672,
+  serialized_start=258,
+  serialized_end=742,
 )
 
 
@@ -159,8 +160,8 @@ _REQUESTECHO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=674,
-  serialized_end=704,
+  serialized_start=744,
+  serialized_end=774,
 )
 
 
@@ -183,8 +184,8 @@ _REQUESTFLUSH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=706,
-  serialized_end=720,
+  serialized_start=776,
+  serialized_end=790,
 )
 
 
@@ -202,6 +203,20 @@ _REQUESTINFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='block_version', full_name='types.RequestInfo.block_version', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='p2p_version', full_name='types.RequestInfo.p2p_version', index=2,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -214,8 +229,8 @@ _REQUESTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=722,
-  serialized_end=752,
+  serialized_start=792,
+  serialized_end=866,
 )
 
 
@@ -252,8 +267,8 @@ _REQUESTSETOPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=754,
-  serialized_end=800,
+  serialized_start=868,
+  serialized_end=914,
 )
 
 
@@ -311,8 +326,8 @@ _REQUESTINITCHAIN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=803,
-  serialized_end=1016,
+  serialized_start=917,
+  serialized_end=1130,
 )
 
 
@@ -363,8 +378,8 @@ _REQUESTQUERY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1018,
-  serialized_end=1091,
+  serialized_start=1132,
+  serialized_end=1205,
 )
 
 
@@ -415,8 +430,8 @@ _REQUESTBEGINBLOCK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1094,
-  serialized_end=1272,
+  serialized_start=1208,
+  serialized_end=1386,
 )
 
 
@@ -446,8 +461,8 @@ _REQUESTCHECKTX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1274,
-  serialized_end=1302,
+  serialized_start=1388,
+  serialized_end=1416,
 )
 
 
@@ -477,8 +492,8 @@ _REQUESTDELIVERTX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1304,
-  serialized_end=1334,
+  serialized_start=1418,
+  serialized_end=1448,
 )
 
 
@@ -508,8 +523,8 @@ _REQUESTENDBLOCK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1336,
-  serialized_end=1369,
+  serialized_start=1450,
+  serialized_end=1483,
 )
 
 
@@ -532,8 +547,8 @@ _REQUESTCOMMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1371,
-  serialized_end=1386,
+  serialized_start=1485,
+  serialized_end=1500,
 )
 
 
@@ -643,8 +658,8 @@ _RESPONSE = _descriptor.Descriptor(
       name='value', full_name='types.Response.value',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=1389,
-  serialized_end=1932,
+  serialized_start=1503,
+  serialized_end=2046,
 )
 
 
@@ -674,8 +689,8 @@ _RESPONSEEXCEPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1934,
-  serialized_end=1968,
+  serialized_start=2048,
+  serialized_end=2082,
 )
 
 
@@ -705,8 +720,8 @@ _RESPONSEECHO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1970,
-  serialized_end=2001,
+  serialized_start=2084,
+  serialized_end=2115,
 )
 
 
@@ -729,8 +744,8 @@ _RESPONSEFLUSH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2003,
-  serialized_end=2018,
+  serialized_start=2117,
+  serialized_end=2132,
 )
 
 
@@ -756,15 +771,22 @@ _RESPONSEINFO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='last_block_height', full_name='types.ResponseInfo.last_block_height', index=2,
-      number=3, type=3, cpp_type=2, label=1,
+      name='app_version', full_name='types.ResponseInfo.app_version', index=2,
+      number=3, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='last_block_app_hash', full_name='types.ResponseInfo.last_block_app_hash', index=3,
-      number=4, type=12, cpp_type=9, label=1,
+      name='last_block_height', full_name='types.ResponseInfo.last_block_height', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='last_block_app_hash', full_name='types.ResponseInfo.last_block_app_hash', index=4,
+      number=5, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -781,8 +803,8 @@ _RESPONSEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2020,
-  serialized_end=2121,
+  serialized_start=2134,
+  serialized_end=2256,
 )
 
 
@@ -826,8 +848,8 @@ _RESPONSESETOPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2123,
-  serialized_end=2183,
+  serialized_start=2258,
+  serialized_end=2318,
 )
 
 
@@ -864,8 +886,8 @@ _RESPONSEINITCHAIN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2185,
-  serialized_end=2304,
+  serialized_start=2320,
+  serialized_end=2439,
 )
 
 
@@ -920,8 +942,8 @@ _RESPONSEQUERY = _descriptor.Descriptor(
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='proof', full_name='types.ResponseQuery.proof', index=6,
-      number=8, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -929,6 +951,13 @@ _RESPONSEQUERY = _descriptor.Descriptor(
       name='height', full_name='types.ResponseQuery.height', index=7,
       number=9, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='codespace', full_name='types.ResponseQuery.codespace', index=8,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -944,8 +973,8 @@ _RESPONSEQUERY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2307,
-  serialized_end=2437,
+  serialized_start=2442,
+  serialized_end=2606,
 )
 
 
@@ -975,8 +1004,8 @@ _RESPONSEBEGINBLOCK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2439,
-  serialized_end=2513,
+  serialized_start=2608,
+  serialized_end=2682,
 )
 
 
@@ -1036,6 +1065,13 @@ _RESPONSECHECKTX = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\310\336\037\000\352\336\037\016tags,omitempty')), file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='codespace', full_name='types.ResponseCheckTx.codespace', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1048,8 +1084,8 @@ _RESPONSECHECKTX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2516,
-  serialized_end=2680,
+  serialized_start=2685,
+  serialized_end=2868,
 )
 
 
@@ -1109,6 +1145,13 @@ _RESPONSEDELIVERTX = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\310\336\037\000\352\336\037\016tags,omitempty')), file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='codespace', full_name='types.ResponseDeliverTx.codespace', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1121,8 +1164,8 @@ _RESPONSEDELIVERTX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2683,
-  serialized_end=2849,
+  serialized_start=2871,
+  serialized_end=3056,
 )
 
 
@@ -1166,8 +1209,8 @@ _RESPONSEENDBLOCK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2852,
-  serialized_end=3038,
+  serialized_start=3059,
+  serialized_end=3245,
 )
 
 
@@ -1197,8 +1240,8 @@ _RESPONSECOMMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3040,
-  serialized_end=3070,
+  serialized_start=3247,
+  serialized_end=3277,
 )
 
 
@@ -1217,8 +1260,15 @@ _CONSENSUSPARAMS = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='evidence_params', full_name='types.ConsensusParams.evidence_params', index=1,
+      name='evidence', full_name='types.ConsensusParams.evidence', index=1,
       number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='validator', full_name='types.ConsensusParams.validator', index=2,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1235,27 +1285,27 @@ _CONSENSUSPARAMS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3072,
-  serialized_end=3175,
+  serialized_start=3280,
+  serialized_end=3425,
 )
 
 
-_BLOCKSIZE = _descriptor.Descriptor(
-  name='BlockSize',
-  full_name='types.BlockSize',
+_BLOCKSIZEPARAMS = _descriptor.Descriptor(
+  name='BlockSizeParams',
+  full_name='types.BlockSizeParams',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='max_bytes', full_name='types.BlockSize.max_bytes', index=0,
+      name='max_bytes', full_name='types.BlockSizeParams.max_bytes', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='max_gas', full_name='types.BlockSize.max_gas', index=1,
+      name='max_gas', full_name='types.BlockSizeParams.max_gas', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1273,8 +1323,8 @@ _BLOCKSIZE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3177,
-  serialized_end=3224,
+  serialized_start=3427,
+  serialized_end=3480,
 )
 
 
@@ -1304,8 +1354,39 @@ _EVIDENCEPARAMS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3226,
-  serialized_end=3259,
+  serialized_start=3482,
+  serialized_end=3515,
+)
+
+
+_VALIDATORPARAMS = _descriptor.Descriptor(
+  name='ValidatorParams',
+  full_name='types.ValidatorParams',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pub_key_types', full_name='types.ValidatorParams.pub_key_types', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3517,
+  serialized_end=3557,
 )
 
 
@@ -1342,8 +1423,8 @@ _LASTCOMMITINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3261,
-  serialized_end=3330,
+  serialized_start=3559,
+  serialized_end=3628,
 )
 
 
@@ -1355,106 +1436,113 @@ _HEADER = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='chain_id', full_name='types.Header.chain_id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
+      name='version', full_name='types.Header.version', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\310\336\037\000')), file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='chain_id', full_name='types.Header.chain_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\342\336\037\007ChainID')), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='height', full_name='types.Header.height', index=1,
-      number=2, type=3, cpp_type=2, label=1,
+      name='height', full_name='types.Header.height', index=2,
+      number=3, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='time', full_name='types.Header.time', index=2,
-      number=3, type=11, cpp_type=10, label=1,
+      name='time', full_name='types.Header.time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\310\336\037\000\220\337\037\001')), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='num_txs', full_name='types.Header.num_txs', index=3,
-      number=4, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='total_txs', full_name='types.Header.total_txs', index=4,
+      name='num_txs', full_name='types.Header.num_txs', index=4,
       number=5, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='last_block_id', full_name='types.Header.last_block_id', index=5,
-      number=6, type=11, cpp_type=10, label=1,
+      name='total_txs', full_name='types.Header.total_txs', index=5,
+      number=6, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='last_block_id', full_name='types.Header.last_block_id', index=6,
+      number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\310\336\037\000')), file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='last_commit_hash', full_name='types.Header.last_commit_hash', index=6,
-      number=7, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='data_hash', full_name='types.Header.data_hash', index=7,
+      name='last_commit_hash', full_name='types.Header.last_commit_hash', index=7,
       number=8, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='validators_hash', full_name='types.Header.validators_hash', index=8,
+      name='data_hash', full_name='types.Header.data_hash', index=8,
       number=9, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='next_validators_hash', full_name='types.Header.next_validators_hash', index=9,
+      name='validators_hash', full_name='types.Header.validators_hash', index=9,
       number=10, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='consensus_hash', full_name='types.Header.consensus_hash', index=10,
+      name='next_validators_hash', full_name='types.Header.next_validators_hash', index=10,
       number=11, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='app_hash', full_name='types.Header.app_hash', index=11,
+      name='consensus_hash', full_name='types.Header.consensus_hash', index=11,
       number=12, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='last_results_hash', full_name='types.Header.last_results_hash', index=12,
+      name='app_hash', full_name='types.Header.app_hash', index=12,
       number=13, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='evidence_hash', full_name='types.Header.evidence_hash', index=13,
+      name='last_results_hash', full_name='types.Header.last_results_hash', index=13,
       number=14, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='proposer_address', full_name='types.Header.proposer_address', index=14,
+      name='evidence_hash', full_name='types.Header.evidence_hash', index=14,
       number=15, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='proposer_address', full_name='types.Header.proposer_address', index=15,
+      number=16, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1471,8 +1559,46 @@ _HEADER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3333,
-  serialized_end=3739,
+  serialized_start=3631,
+  serialized_end=4076,
+)
+
+
+_VERSION = _descriptor.Descriptor(
+  name='Version',
+  full_name='types.Version',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='Block', full_name='types.Version.Block', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='App', full_name='types.Version.App', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4078,
+  serialized_end=4115,
 )
 
 
@@ -1509,8 +1635,8 @@ _BLOCKID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3741,
-  serialized_end=3814,
+  serialized_start=4117,
+  serialized_end=4190,
 )
 
 
@@ -1547,8 +1673,8 @@ _PARTSETHEADER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3816,
-  serialized_end=3860,
+  serialized_start=4192,
+  serialized_end=4236,
 )
 
 
@@ -1585,8 +1711,8 @@ _VALIDATOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3862,
-  serialized_end=3905,
+  serialized_start=4238,
+  serialized_end=4281,
 )
 
 
@@ -1623,8 +1749,8 @@ _VALIDATORUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3907,
-  serialized_end=3977,
+  serialized_start=4283,
+  serialized_end=4353,
 )
 
 
@@ -1661,8 +1787,8 @@ _VOTEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3979,
-  serialized_end=4059,
+  serialized_start=4355,
+  serialized_end=4435,
 )
 
 
@@ -1699,8 +1825,8 @@ _PUBKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4061,
-  serialized_end=4097,
+  serialized_start=4437,
+  serialized_end=4473,
 )
 
 
@@ -1758,8 +1884,8 @@ _EVIDENCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4100,
-  serialized_end=4263,
+  serialized_start=4476,
+  serialized_end=4639,
 )
 
 _REQUEST.fields_by_name['echo'].message_type = _REQUESTECHO
@@ -1862,15 +1988,18 @@ _RESPONSE.oneofs_by_name['value'].fields.append(
 _RESPONSE.fields_by_name['commit'].containing_oneof = _RESPONSE.oneofs_by_name['value']
 _RESPONSEINITCHAIN.fields_by_name['consensus_params'].message_type = _CONSENSUSPARAMS
 _RESPONSEINITCHAIN.fields_by_name['validators'].message_type = _VALIDATORUPDATE
+_RESPONSEQUERY.fields_by_name['proof'].message_type = protobuf_dot_github_dot_com_dot_tendermint_dot_tendermint_dot_crypto_dot_merkle_dot_merkle__pb2._PROOF
 _RESPONSEBEGINBLOCK.fields_by_name['tags'].message_type = protobuf_dot_github_dot_com_dot_tendermint_dot_tendermint_dot_libs_dot_common_dot_types__pb2._KVPAIR
 _RESPONSECHECKTX.fields_by_name['tags'].message_type = protobuf_dot_github_dot_com_dot_tendermint_dot_tendermint_dot_libs_dot_common_dot_types__pb2._KVPAIR
 _RESPONSEDELIVERTX.fields_by_name['tags'].message_type = protobuf_dot_github_dot_com_dot_tendermint_dot_tendermint_dot_libs_dot_common_dot_types__pb2._KVPAIR
 _RESPONSEENDBLOCK.fields_by_name['validator_updates'].message_type = _VALIDATORUPDATE
 _RESPONSEENDBLOCK.fields_by_name['consensus_param_updates'].message_type = _CONSENSUSPARAMS
 _RESPONSEENDBLOCK.fields_by_name['tags'].message_type = protobuf_dot_github_dot_com_dot_tendermint_dot_tendermint_dot_libs_dot_common_dot_types__pb2._KVPAIR
-_CONSENSUSPARAMS.fields_by_name['block_size'].message_type = _BLOCKSIZE
-_CONSENSUSPARAMS.fields_by_name['evidence_params'].message_type = _EVIDENCEPARAMS
+_CONSENSUSPARAMS.fields_by_name['block_size'].message_type = _BLOCKSIZEPARAMS
+_CONSENSUSPARAMS.fields_by_name['evidence'].message_type = _EVIDENCEPARAMS
+_CONSENSUSPARAMS.fields_by_name['validator'].message_type = _VALIDATORPARAMS
 _LASTCOMMITINFO.fields_by_name['votes'].message_type = _VOTEINFO
+_HEADER.fields_by_name['version'].message_type = _VERSION
 _HEADER.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _HEADER.fields_by_name['last_block_id'].message_type = _BLOCKID
 _BLOCKID.fields_by_name['parts_header'].message_type = _PARTSETHEADER
@@ -1904,10 +2033,12 @@ DESCRIPTOR.message_types_by_name['ResponseDeliverTx'] = _RESPONSEDELIVERTX
 DESCRIPTOR.message_types_by_name['ResponseEndBlock'] = _RESPONSEENDBLOCK
 DESCRIPTOR.message_types_by_name['ResponseCommit'] = _RESPONSECOMMIT
 DESCRIPTOR.message_types_by_name['ConsensusParams'] = _CONSENSUSPARAMS
-DESCRIPTOR.message_types_by_name['BlockSize'] = _BLOCKSIZE
+DESCRIPTOR.message_types_by_name['BlockSizeParams'] = _BLOCKSIZEPARAMS
 DESCRIPTOR.message_types_by_name['EvidenceParams'] = _EVIDENCEPARAMS
+DESCRIPTOR.message_types_by_name['ValidatorParams'] = _VALIDATORPARAMS
 DESCRIPTOR.message_types_by_name['LastCommitInfo'] = _LASTCOMMITINFO
 DESCRIPTOR.message_types_by_name['Header'] = _HEADER
+DESCRIPTOR.message_types_by_name['Version'] = _VERSION
 DESCRIPTOR.message_types_by_name['BlockID'] = _BLOCKID
 DESCRIPTOR.message_types_by_name['PartSetHeader'] = _PARTSETHEADER
 DESCRIPTOR.message_types_by_name['Validator'] = _VALIDATOR
@@ -2099,12 +2230,12 @@ ConsensusParams = _reflection.GeneratedProtocolMessageType('ConsensusParams', (_
   ))
 _sym_db.RegisterMessage(ConsensusParams)
 
-BlockSize = _reflection.GeneratedProtocolMessageType('BlockSize', (_message.Message,), dict(
-  DESCRIPTOR = _BLOCKSIZE,
+BlockSizeParams = _reflection.GeneratedProtocolMessageType('BlockSizeParams', (_message.Message,), dict(
+  DESCRIPTOR = _BLOCKSIZEPARAMS,
   __module__ = 'protobuf.types_pb2'
-  # @@protoc_insertion_point(class_scope:types.BlockSize)
+  # @@protoc_insertion_point(class_scope:types.BlockSizeParams)
   ))
-_sym_db.RegisterMessage(BlockSize)
+_sym_db.RegisterMessage(BlockSizeParams)
 
 EvidenceParams = _reflection.GeneratedProtocolMessageType('EvidenceParams', (_message.Message,), dict(
   DESCRIPTOR = _EVIDENCEPARAMS,
@@ -2112,6 +2243,13 @@ EvidenceParams = _reflection.GeneratedProtocolMessageType('EvidenceParams', (_me
   # @@protoc_insertion_point(class_scope:types.EvidenceParams)
   ))
 _sym_db.RegisterMessage(EvidenceParams)
+
+ValidatorParams = _reflection.GeneratedProtocolMessageType('ValidatorParams', (_message.Message,), dict(
+  DESCRIPTOR = _VALIDATORPARAMS,
+  __module__ = 'protobuf.types_pb2'
+  # @@protoc_insertion_point(class_scope:types.ValidatorParams)
+  ))
+_sym_db.RegisterMessage(ValidatorParams)
 
 LastCommitInfo = _reflection.GeneratedProtocolMessageType('LastCommitInfo', (_message.Message,), dict(
   DESCRIPTOR = _LASTCOMMITINFO,
@@ -2126,6 +2264,13 @@ Header = _reflection.GeneratedProtocolMessageType('Header', (_message.Message,),
   # @@protoc_insertion_point(class_scope:types.Header)
   ))
 _sym_db.RegisterMessage(Header)
+
+Version = _reflection.GeneratedProtocolMessageType('Version', (_message.Message,), dict(
+  DESCRIPTOR = _VERSION,
+  __module__ = 'protobuf.types_pb2'
+  # @@protoc_insertion_point(class_scope:types.Version)
+  ))
+_sym_db.RegisterMessage(Version)
 
 BlockID = _reflection.GeneratedProtocolMessageType('BlockID', (_message.Message,), dict(
   DESCRIPTOR = _BLOCKID,
@@ -2203,6 +2348,8 @@ _RESPONSEENDBLOCK.fields_by_name['tags'].has_options = True
 _RESPONSEENDBLOCK.fields_by_name['tags']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\310\336\037\000\352\336\037\016tags,omitempty'))
 _LASTCOMMITINFO.fields_by_name['votes'].has_options = True
 _LASTCOMMITINFO.fields_by_name['votes']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\310\336\037\000'))
+_HEADER.fields_by_name['version'].has_options = True
+_HEADER.fields_by_name['version']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\310\336\037\000'))
 _HEADER.fields_by_name['chain_id'].has_options = True
 _HEADER.fields_by_name['chain_id']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\342\336\037\007ChainID'))
 _HEADER.fields_by_name['time'].has_options = True
@@ -2226,8 +2373,8 @@ _ABCIAPPLICATION = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=4266,
-  serialized_end=4918,
+  serialized_start=4642,
+  serialized_end=5294,
   methods=[
   _descriptor.MethodDescriptor(
     name='Echo',
